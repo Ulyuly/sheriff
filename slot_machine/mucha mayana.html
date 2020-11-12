@@ -1,0 +1,139 @@
+<!-- KAMIL TUSZYŃSKI 3B3T -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MUCHA MAYANA</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: helvetica;
+        font-size: 2em;
+        margin: auto;
+        background-image: url("background.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: green;
+        color: gold;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+
+    
+      
+    </style>
+  </head>
+  <body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>MUCHA MAYANA</h2>
+    <p>ZATRZYMAJ ŻEBY DOSTAĆ MAYAŃSKIE SUMY</p>
+    <canvas
+      id="canvas"
+      width="270px"
+      height="90px"
+      style="background-color: #ddd"
+    ></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      const slot1 = new Image();
+      const slot2 = new Image();
+      const slot3 = new Image();
+      const slot4 = new Image();
+      const slot5 = new Image();
+      const slot6 = new Image();
+      const slot7 = new Image();
+      const slot8 = new Image();
+      const slot9 = new Image();
+      const slot10 = new Image();
+      const slot11 = new Image();
+      const slot12 = new Image();
+
+      slot1.src = "./img/slot1.png";
+      slot2.src = "./img/slot2.png";
+      slot3.src = "./img/slot3.png";
+      slot4.src = "./img/slot4.png";
+      slot5.src = "./img/slot5.png";
+      slot6.src = "./img/slot6.png";
+      slot7.src = "./img/slot7.png";
+      slot8.src = "./img/slot8.png";
+      slot9.src = "./img/slot9.png";
+      slot10.src = "./img/slot10.png";
+      slot11.src = "./img/slot11.png";
+      slot12.src = "./img/slot12.png";
+
+      function animacja() {
+        console.log("animacja", Date.now());
+        ctx.clearRect(0, 0, 270, 90);
+        ctx.drawImage(pickImg(), 0, 0);
+        ctx.drawImage(pickImg(), 90, 0);
+        ctx.drawImage(pickImg(), 180, 0);
+      }
+
+      function randomizer() {
+        let value = Math.floor(Math.random() * 12) + 1;
+        console.log(value);
+        return value;
+      }
+
+      function pickImg() {
+        let value = randomizer();
+        switch (value) {
+          case 1:
+            return slot1;
+            break;
+          case 2:
+            return slot2;
+            break;
+          case 3:
+            return slot3;
+            break;
+          case 4:
+            return slot4;
+            break;
+          case 5:
+            return slot5;
+            break;
+          case 6:
+            return slot6;
+            break;
+          case 7:
+            return slot7;
+            break;
+          case 8:
+            return slot8;
+            break;
+          case 9:
+            return slot9;
+            break;
+          case 10:
+            return slot10;
+            break;
+          case 11:
+            return slot11;
+            break;
+          case 12:
+            return slot12;
+            break;
+        }
+      }
+
+
+
+      let rolling;
+      window.addEventListener("load", (event) => {
+        console.log("Strona załadowana");
+        rolling = setInterval(animacja, 100);
+      });
+      canvas.addEventListener("click", () => {
+        clearInterval(rolling);
+      });
+    </script>
+  </body>
+</html>
